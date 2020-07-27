@@ -5,10 +5,9 @@ const Pokemon = () => {
   const [pokemons, setPokemons] = useState([]);
 
   const fetchData = async () => {
-    const res = await fetch("http://localhost:3000/pokemon");
+    const res = await fetch("https://immense-fortress-30260.herokuapp.com/pokemon");
     res
       .json()
-      .then(res => console.log(res))
       .then(res => setPokemons(res))
       .catch(alert);
   };
@@ -22,7 +21,7 @@ const Pokemon = () => {
       <h2>Pokemons</h2>
       <ol>
         {pokemons.map(pokemon => {
-          return <li key={pokemon.id}><Link to={`${pokemon.id}`}>{pokemon.name.english}</Link></li>
+          return <li key={pokemon.id}><Link to={`https://immense-fortress-30260.herokuapp.com/pokemon/${pokemon.id}`}>{pokemon.name.english}</Link></li>
         })}
       </ol>
     </div>
