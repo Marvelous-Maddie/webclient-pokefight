@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const PokemonId = (key) => {
-  const [pokemon, setPokemon] = useState([]);
+const PokemonId = () => {
+  const [pokemon, setPokemon] = useState(null);
+  const { id } = useParams();
 
   const fetchData = async () => {
-    const res = await fetch(`https://immense-fortress-30260.herokuapp.com/pokemon/${key}`);
+    const res = await fetch(`https://immense-fortress-30260.herokuapp.com/pokemon/${id}`);
     res
       .json()
       .then(res => setPokemon(res))
@@ -16,15 +17,26 @@ const PokemonId = (key) => {
     fetchData();
   },[]);
 
-  return (
-    <div>
-      <h2><Link to={`https://immense-fortress-30260.herokuapp.com/pokemon/name`}>{pokemon.name.english}</Link></h2>
-      <ul>
-        <li><Link to={`https://immense-fortress-30260.herokuapp.com/pokemon/type`}>{pokemon.type}</Link></li>
-        <li><Link to={`https://immense-fortress-30260.herokuapp.com/pokemon/name`}>{pokemon.base}</Link></li>
-      </ul>
-    </div>
-  )
+  if(pokemon) {
+    return (
+      <div>
+        <h2><Link to={`/pokemon/${id}/name`}>Name</Link></h2>
+        <ul>
+          {Object.keys(pokemon.name).map(k => <li>{k}:{pokemon.name[k]}</li>)}
+        </ul>
+        <h2><Link to={`/pokemon/${id}/type`}>Type</Link></h2>
+        <ul>
+          {Object.keys(pokemon.type).map(k => <li>{k}:{pokemon.type[k]}</li>)}
+        </ul>
+        <h2><Link to={`/pokemon/${id}/base`}>Base</Link></h2>
+        <ul>
+          {Object.keys(pokemon.base).map(k => <li>{k}:{pokemon.base[k]}</li>)}
+        </ul>
+      </div>
+    )
+  } else {
+      return(<h2>Loading...</h2>)
+  }
 };
 
 export default PokemonId

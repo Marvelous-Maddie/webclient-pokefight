@@ -8,17 +8,17 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/*<header className="App-header">
       <h1>PokeFight</h1>
-      </header>
+      </header>*/}
       <main>
       <Route exact path="/">
         <Pokemon />
       </Route>
-      <Route path="pokemon-:id">
+      <Route path="/pokemon/:id">
         <PokemonId />
       </Route>
-      <Route path="pokemon-:id/:info">
+      <Route path="/pokemon/:id/:info">
         <PokemonInfos />
       </Route>
       </main>

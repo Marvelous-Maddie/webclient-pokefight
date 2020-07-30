@@ -21,7 +21,7 @@ const Pokemon = () => {
       <h2>Pokemons</h2>
       <ol>
         {pokemons.map(pokemon => {
-          return <li key={pokemon.id}><Link to={`https://immense-fortress-30260.herokuapp.com/pokemon/${pokemon.id}`}>{pokemon.name.english}</Link></li>
+          return <li key={pokemon.id}><Link to={`/pokemon/${pokemon.id}`}>{pokemon.name.english}</Link></li>
         })}
       </ol>
     </div>
