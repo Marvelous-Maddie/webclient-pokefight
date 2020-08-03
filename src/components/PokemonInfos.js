@@ -7,10 +7,9 @@ const PokemonInfos = () => {
   const { info } = useParams();
 
   const fetchData = async () => {
-    const res = await fetch("https://immense-fortress-30260.herokuapp.com/pokemon/${id}/${info}");
+    const res = await fetch(`https://immense-fortress-30260.herokuapp.com/pokemon/${id}/${info}`);
     res
       .json()
-      .then(res => console.log(res))
       .then(res => setPokemonInfo(res))
       .catch(alert);
   };
@@ -22,12 +21,16 @@ const PokemonInfos = () => {
   if(pokemonInfo) {
     return (
       <div>
-        <h2>${info}</h2>
+        <h2>{info}</h2>
         <ul>
-          {Object.keys(pokemon.${info}).map(k => <li>{k}:{pokemon.${info}[k]}</li>)}
+        {/*{Object.keys(pokemonInfo.{info}).map(k => <li>{k}:{pokemonInfo.{info}[k]}</li>)}*/}
+        <li>Hello</li>
         </ul>
+        <button><Link to={`/pokemon/${id}`}>Back</Link></button>
+        <button><Link to="/">Back to the list</Link></button>
       </div>
-  )
-};
+    )
+  };
+}
 
 export default PokemonInfos

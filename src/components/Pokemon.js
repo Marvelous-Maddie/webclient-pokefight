@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { Container, Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText } from '@material-ui/core';
 
 const Pokemon = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -17,14 +18,27 @@ const Pokemon = () => {
   },[]);
 
   return (
-    <div>
-      <h2>Pokemons</h2>
-      <ol>
-        {pokemons.map(pokemon => {
-          return <li key={pokemon.id}><Link to={`/pokemon/${pokemon.id}`}>{pokemon.name.english}</Link></li>
-        })}
-      </ol>
-    </div>
+    <Container>
+        <Typography variant="h2">
+          Pokemons
+        </Typography>
+        <List>
+          {pokemons.map(pokemon => {
+            return (
+              <ListItem key={pokemon.id}>
+                <ListItemAvatar>
+                  <Avatar>
+
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText>
+                  <Link to={`/pokemon/${pokemon.id}`}>{pokemon.name.english}</Link>
+                </ListItemText>
+              </ListItem>
+            )
+          })}
+        </List>
+    </Container>
   )
 };
 

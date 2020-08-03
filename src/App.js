@@ -1,27 +1,33 @@
 import React from 'react';
-import { Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import { Container, Typography } from '@material-ui/core';
 import Pokemon from "./components/Pokemon";
 import PokemonId from "./components/PokemonId";
 import PokemonInfos from "./components/PokemonInfos";
-import './App.css';
+import 'fontsource-roboto';
 
 function App() {
   return (
     <div className="App">
-      {/*<header className="App-header">
-      <h1>PokeFight</h1>
-      </header>*/}
-      <main>
-      <Route exact path="/">
-        <Pokemon />
-      </Route>
-      <Route path="/pokemon/:id">
-        <PokemonId />
-      </Route>
-      <Route path="/pokemon/:id/:info">
-        <PokemonInfos />
-      </Route>
-      </main>
+      <header>
+        <Container>
+          <Typography variant="h1">
+            PokeFight
+          </Typography>
+        </Container>
+      </header>
+
+      <Switch>
+        <Route exact path="/">
+          <Pokemon />
+        </Route>
+        <Route path="/pokemon/:id">
+          <PokemonId />
+        </Route>
+        <Route path="/pokemon/:id/:info">
+          <PokemonInfos />
+        </Route>
+      </Switch>
     </div>
   );
 }
