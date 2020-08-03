@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { Container, Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText } from '@material-ui/core';
+import { Container, Typography, Card, CardContent, List, ListItem, ListItemAvatar, Avatar, ListItemText } from '@material-ui/core';
 
 const Pokemon = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -19,10 +19,20 @@ const Pokemon = () => {
 
   return (
     <Container>
-        <Typography variant="h2">
-          Pokemons
-        </Typography>
-        <List>
+      <Typography variant="h2">
+        Next Fight
+      </Typography>
+      <Card variant="outlined">
+        <CardContent>
+        Pokemon 1 : Pokemon 2
+        </CardContent>
+      </Card>
+      <Typography variant="h2">
+        Pokemons
+      </Typography>
+      <Card variant="outlined">
+        <CardContent>
+          <List>
           {pokemons.map(pokemon => {
             return (
               <ListItem key={pokemon.id}>
@@ -38,6 +48,8 @@ const Pokemon = () => {
             )
           })}
         </List>
+        </CardContent>
+        </Card>
     </Container>
   )
 };

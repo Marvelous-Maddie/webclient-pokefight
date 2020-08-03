@@ -18,10 +18,10 @@ function App() {
       </header>
 
       <Switch>
-        <Route exact path="/">
+      <Route exact path="/">
           <Pokemon />
         </Route>
-        <Route path="/pokemon/:id">
+        <Route exact path="/pokemon/:id">
           <PokemonId />
         </Route>
         <Route path="/pokemon/:id/:info">
