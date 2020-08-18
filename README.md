@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#PokeFight
+
+Consisting of a backend (not published on GitHub), that serves the APIs, and this frontend app. The project is not finished, upcoming features: game logic.
+
+## Technologies
+
+- [Create React App](https://github.com/facebook/create-react-app)
+- [Material-UI](https://material-ui.com/)
 
 ## Available Scripts
 
