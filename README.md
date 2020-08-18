@@ -1,4 +1,4 @@
-#PokeFight
+# PokeFight
 
 Consisting of a backend (not published on GitHub), that serves the APIs, and this frontend app. The project is not finished, upcoming features: game logic.
 
